@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form, Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2">
-        <img src="https://i.ibb.co/4MbgKjJ/lf20-xlmz9xwm.png" alt="" />
+          <img src="https://i.ibb.co/4MbgKjJ/lf20-xlmz9xwm.png" alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ml-20 bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
           <h1 className="text-4xl p-5 font-bold">Register!</h1>
-          <Form>
+          <Form onSubmit={handleSignUp}>
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -63,7 +82,6 @@ const Register = () => {
                   </Link>
                 </p>
               </div>
-              {/* <SocialLogin></SocialLogin> */}
             </div>
           </Form>
         </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -9,6 +9,16 @@ const Navbar = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
+  };
+
+  const [showUsername, setShowUsername] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowUsername(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowUsername(false);
   };
 
   return (
@@ -39,54 +49,53 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/">All Toys</Link>
+              <Link to="/allToys">All Toys</Link>
             </li>
-            {user?.email ? (
-              <>
-                <li>
-                  <Link to="/">My Toys</Link>
-                </li>
-                <li>
-                  <Link to="/">Add A Toy</Link>
-                </li>
-                {/* <div className="avatar">
-                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={user?.email} />
-                  </div>
-                </div> */}
-
-                <div>
-                  <small>
-                    <span>Welcome</span>{" "}
-                    {user ? (
-                      <div>
-                        <div
-                          className="tooltip tooltip-open tooltip-primary"
-                          data-tip={user?.email}
-                        >
-                          <button className="btn btn-primary">primary</button>
-                        </div>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </small>
-                </div>
-
-                <li>
-                  <button onClick={handleLogOut}>Log Out</button>
-                </li>
-              </>
-            ) : (
-              <button>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </button>
-            )}
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
+
+            <ul className="flex space-x-4">
+              {user ? (
+                <li>
+                  <div
+                    className="relative"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <img
+                      src={user.profilePicture}
+                      alt="Profile Picture"
+                      className="w-8 h-8 rounded-full"
+                    />
+                    {showUsername && (
+                      <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
+                        {user?user.displayName:user.email}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ) : (
+                <li>
+                  <a href="/login">Login</a>
+                </li>
+              )}
+              {user ? (
+                <>
+                  <li>
+                    <a href="/myToys">My Toys</a>
+                  </li>
+                  <li>
+                    <a href="/addAToy">Add A Toy</a>
+                  </li>
+                  <li>
+                    <button onClick={handleLogOut}>Log Out</button>
+                  </li>
+                </>
+              ) : (
+                ""
+              )}
+            </ul>
           </ul>
         </div>
         <Link to="/">
@@ -113,7 +122,53 @@ const Navbar = () => {
           <li>
             <Link to="/">All Toys</Link>
           </li>
-          {user?.email ? (
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+
+          <ul className="flex space-x-4">
+            {user ? (
+              <li>
+                <div
+                  className="relative"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <img
+                    src={user.profilePicture}
+                    alt="Profile Picture"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  {showUsername && (
+                    <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
+                      {user?user.displayName:user.email}
+                    </span>
+                  )}
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            )}
+            {user ? (
+              <>
+                <li>
+                  <a href="/myToys">My Toys</a>
+                </li>
+                <li>
+                  <a href="/addAToy">Add A Toy</a>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>Log Out</button>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+          </ul>
+
+          {/* {user?.email ? (
             <>
               <li>
                 <Link to="/">My Toys</Link>
@@ -131,10 +186,7 @@ const Navbar = () => {
                 <Link to="/login">Login</Link>
               </li>
             </button>
-          )}
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
+          )} */}
         </ul>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
@@ -8,6 +8,7 @@ const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const from = location.state?.from?.pathname || "/";
 
@@ -15,8 +16,13 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         console.log(result);
+        setError("");
+        form.reset("");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error.message);
+        setError(error.message);
+      });
   };
 
   const handleLogin = (event) => {
@@ -29,6 +35,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
+        form.reset("");
         if (user) {
           Swal.fire({
             title: "success!",
@@ -38,9 +46,11 @@ const Login = () => {
           });
         }
         navigate(from, { replace: true });
-        toast("Wow so easy !");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error.message);
+        setError(error.message);
+      });
   };
 
   return (
@@ -82,14 +92,16 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              <p className="font-bold text-red-500 text-xl">{error}</p>
               <div className="form-control mt-6">
                 <input
                   className="btn bg-gradient-to-r from-indigo-200 from-10% via-sky-500 via-30% to-emerald-200 to-90%"
                   type="submit"
                   value="Login"
                 />
+
                 <p className="text-center mt-5 font-semibold">
-                  New to car doctor? Please{" "}
+                  New to Hublot Toys? Please{" "}
                   <Link className="text-green-600 font-bold" to="/register">
                     register
                   </Link>
@@ -102,7 +114,6 @@ const Login = () => {
                   className="text-2xl btn btn-circle btn-outline text-indigo-600"
                 >
                   <FaGoogle></FaGoogle>
-                  <ToastContainer />
                 </button>
               </div>
             </div>

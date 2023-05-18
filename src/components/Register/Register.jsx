@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -11,14 +13,33 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    const photoURL = form.photoURL.value;
+    console.log(name, email, password, photoURL);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
+        form.reset("");
+        userUpdate(result.user, name, photoURL);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error.message);
+        setError(error.message);
+      });
+  };
+
+  const userUpdate = (user, name, photoURL) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoURL,
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.error(error.message);
+        setError(error.message);
+      });
   };
 
   return (
@@ -63,12 +84,19 @@ const Register = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url</span>
+                </label>
+                <input
+                  type="url"
+                  name="photoURL"
+                  placeholder="Photo Url"
+                  className="input input-bordered"
+                />
+              </div>
+              <p className="font-bold text-red-500 text-xl">{error}</p>
               <div className="form-control mt-6">
                 <input
                   className="btn bg-gradient-to-r from-indigo-200 from-10% via-sky-500 via-30% to-emerald-200 to-90%"

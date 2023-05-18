@@ -70,7 +70,7 @@ const Navbar = () => {
                     />
                     {showUsername && (
                       <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
-                        {user?user.displayName:user.email}
+                        {user ? user.displayName : user.email}
                       </span>
                     )}
                   </div>
@@ -141,7 +141,7 @@ const Navbar = () => {
                   />
                   {showUsername && (
                     <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
-                      {user?user.displayName:user.email}
+                      {user ? user.displayName : user.email}
                     </span>
                   )}
                 </div>
@@ -167,26 +167,6 @@ const Navbar = () => {
               ""
             )}
           </ul>
-
-          {/* {user?.email ? (
-            <>
-              <li>
-                <Link to="/">My Toys</Link>
-              </li>
-              <li>
-                <Link to="/">Add A Toy</Link>
-              </li>
-              <li>
-                <button onClick={handleLogOut}>Log Out</button>
-              </li>
-            </>
-          ) : (
-            <button>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </button>
-          )} */}
         </ul>
       </div>
     </div>

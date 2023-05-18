@@ -7,6 +7,7 @@ const Gallery = () => {
       <p className="text-center text-xl my-10">Transformer toys are action figures inspired by the Transformers franchise. They can transform between different forms like robots, vehicles, or animals. They come in various sizes and complexities, with popular characters and intricate transformation mechanisms. Transformer toys are loved by collectors and offer a mix of playability and display value.</p></div>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
         <div className="mockup-phone">
+                <p className="font-bold text-orange-600 text-center text-xl">Albatron</p>
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1">
@@ -19,6 +20,7 @@ const Gallery = () => {
         </div>
 
         <div className="mockup-phone">
+            <p className="font-bold text-orange-600 text-center text-xl">Decepticons</p>
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1">
@@ -28,6 +30,7 @@ const Gallery = () => {
         </div>
 
         <div className="mockup-phone">
+            <p className="font-bold text-orange-600 text-center text-xl">Shockwave</p>
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1">
@@ -40,9 +43,11 @@ const Gallery = () => {
         </div>
 
         <div className="mockup-phone">
+        <p className="font-bold text-orange-600 text-center text-xl">Bumblebee</p>
           <div className="camera"></div>
           <div className="display">
             <div className="artboard artboard-demo phone-1">
+            
               <img
                 src="https://i.ibb.co/5BXg6kv/image-2.jpg"
                 alt="Burger"

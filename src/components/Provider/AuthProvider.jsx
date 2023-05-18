@@ -1,5 +1,13 @@
 import { createContext, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -8,7 +16,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const googleProvider = new GoogleAuthProvider()
+  const googleProvider = new GoogleAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -20,44 +28,42 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleSignIn =()=>{
-    setLoading(true)
-    return signInWithPopup (auth, googleProvider)
+  const googleSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
-  }
-
-  const logOut = ()=>{
-    setLoading(true)    
-    return signOut(auth)
-  }
-  
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log('current user in auth provider', currentUser);
+      console.log("current user in auth provider", currentUser);
       setLoading(false);
-      if (currentUser && currentUser.email){
-        const loggedUer ={
-          email: currentUser.email
-        }
-        fetch('https://car-doctor-server-orpin-sigma.vercel.app/jwt', {
-            method: "POST",
-            headers: {
-              'content-type': 'application/json'
-            },
-            body: JSON.stringify(loggedUer)
-          })
-          .then (res => res.json())
-          .then (data => {
-            console.log('jwt response', data);
+      if (currentUser && currentUser.email) {
+        const loggedUer = {
+          email: currentUser.email,
+        };
+        fetch("https://car-doctor-server-orpin-sigma.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUer),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("jwt response", data);
 
             // localstrage in not a best but second best
-            localStorage.setItem('car-access-token', data.token)            
-          })
+            localStorage.setItem("car-access-token", data.token);
+          });
       } else {
-        localStorage.removeItem('car-access-token')
-      };
+        localStorage.removeItem("car-access-token");
+      }
     });
     return () => {
       unsubscribe();

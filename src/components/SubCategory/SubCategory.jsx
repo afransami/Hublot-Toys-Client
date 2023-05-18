@@ -13,13 +13,15 @@ const SubCategory = () => {
         <Tabs>
           
           <TabList>
-            <Tab>Action</Tab>            
-            <Tab>Scientists</Tab>
-            <Tab>Warriors</Tab>            
+            <Link><Tab>Action</Tab></Link>            
+            <Link><Tab>Scientists</Tab></Link>            
+            <Link><Tab>Warriors</Tab></Link>            
+            {/* <Tab>Scientists</Tab>
+            <Tab>Warriors</Tab>             */}
           </TabList>
 
           <TabPanel>
-          <Link>Any content 1</Link>
+          {/* <Link to = {`/actionToys/${toy._id}`}>Any content 1</Link> */}
           </TabPanel>          
           <TabPanel>
           <Link>Any content 2</Link>

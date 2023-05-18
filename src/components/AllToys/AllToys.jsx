@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const AllToys = () => {
+    const [allToys, setAllToys] = useState([])
+
+  useEffect(()=>{
+    
+    fetch('http://localhost:5000/allToys')
+    .then (res=>res.json())    
+    .then (data=>setAllToys(data))
+  },[])  
+  console.log(allToys);
+
+
     return (
-        <div>
-            
-        </div>
+        <div className="overflow-x-auto w-full mx-auto container">
+      <h1 className="text-3xl">Your book List: {allToys.length} </h1>
+      <table className="table w-full">
+        {/* head */}
+        <thead>
+          <tr>
+            <th>SL</th>
+            <th>Seller Name</th>
+            <th>Toy Name</th>
+            <th>Sub-Category</th>
+            <th>Price</th>
+            <th>Available Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {allToys.map((toy, i) => (
+            <tr key={toy._id}>
+              <th>{i + 1}</th>
+              <th>{toy.sellerName}</th>
+              <td>{toy.name}</td>
+              <td>{toy.subCategory}</td>
+              <td>{toy.price}</td>
+              <td>{toy.availableQuantity}</td>
+              <td className="gap-4 flex">               
+                <Link
+                  to={`/viewDetails/${toy._id}`}
+                  className="btn btn-info btn-outline"
+                >
+                  View Details
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
     );
 };
 

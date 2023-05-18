@@ -1,53 +1,35 @@
-{
-    "toys": [
-      {
+[
+    {
         "picture": "https://example.com/toy1.jpg",
         "name": "Optimus Prime",
         "price": 49.99,
         "rating": 4.5,
-        "subCategory": "Autobots",
-        "availableQuantity": 10
-      },
-      {
+        "subCategory": "Action",
+        "availableQuantity": 10,
+        "description": "Optimus Prime is the heroic leader of the Autobots. This transformer toy features impressive transformation abilities and comes with various weapons and accessories.",
+        "sellerName": "Jane Smith",
+        "sellerEmail": "janesmith@example.com"
+    },
+    {
         "picture": "https://example.com/toy2.jpg",
         "name": "Megatron",
         "price": 39.99,
         "rating": 4.2,
-        "subCategory": "Decepticons",
-        "availableQuantity": 5
-      },
-      {
+        "subCategory": "Scientist",
+        "availableQuantity": 5,
+        "description": "Megatron is the powerful leader of the Decepticons. This transformer toy is known for its menacing appearance and includes additional attachments for enhanced playability.",
+        "sellerName": "John Doe",
+        "sellerEmail": "johndoe@example.com"
+    },
+    {
         "picture": "https://example.com/toy3.jpg",
         "name": "Bumblebee",
         "price": 29.99,
         "rating": 4.8,
-        "subCategory": "Autobots",
-        "availableQuantity": 15
-      },
-      {
-        "picture": "https://example.com/toy4.jpg",
-        "name": "Starscream",
-        "price": 34.99,
-        "rating": 4.3,
-        "subCategory": "Decepticons",
-        "availableQuantity": 8
-      },
-      {
-        "picture": "https://example.com/toy5.jpg",
-        "name": "Optimus Primal",
-        "price": 42.99,
-        "rating": 4.6,
-        "subCategory": "Maximals",
-        "availableQuantity": 12
-      },
-      {
-        "picture": "https://example.com/toy6.jpg",
-        "name": "Soundwave",
-        "price": 36.99,
-        "rating": 4.4,
-        "subCategory": "Decepticons",
-        "availableQuantity": 7
-      }
-    ]
-  }
-  
+        "subCategory": "Warriors",
+        "availableQuantity": 15,
+        "description": "Bumblebee is a friendly and agile Autobot. This transformer toy is perfect for young fans and features a compact design with easy transformation.",
+        "sellerName": "Jane Smith",
+        "sellerEmail": "janesmith@example.com"
+    }
+]

@@ -3,26 +3,29 @@ import React from "react";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full h-[700px]">
+      <div className="carousel w-full h-[700px] rounded-xl">
         <div id="item1" className="carousel-item w-full ">
           <img
             src="https://i.ibb.co/2SrZ6Tz/bumblebee.jpg"
             className="w-full"
           />
           <div className="absolute h-[700px] flex items-center bg-gradient-to-r from-blue-700 to-transparent rounded-xl">
-          <div className="text-white space-y-5 w-2/3 pl-10 hidden lg:block">
-            <h2 className="text-5xl text-teal-200 font-bold">
-            A toy is a friend that never leaves your side, <br /> always ready for an adventure
-            </h2>
-            <p className="text-xl">
-            A toy is a bridge between reality and imagination, inviting us to explore new realms
-            </p>
-            <div>                            
+            <div className="text-white space-y-5 w-2/3 pl-10 hidden lg:block">
+              <h2 className="text-5xl text-teal-200 font-bold">
+                A toy is a friend that never leaves your side, <br /> always
+                ready for an adventure
+              </h2>
+              <p className="text-xl">
+                A toy is a bridge between reality and imagination, inviting us
+                to explore new realms
+              </p>
+              <div>
                 <button className="btn btn-outline btn-info">
-                Explore More</button>
+                  Explore More
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div id="item2" className="carousel-item w-full">
           <img

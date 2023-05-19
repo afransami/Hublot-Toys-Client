@@ -44,7 +44,7 @@ const AddaToy = () => {
 
   return (
     <div className="card-body">
-      <h1 className="text-5xl text-center font-bold"> Toy Upload: </h1>
+      <h1 className="text-5xl text-center font-bold"> Upload A Toy: </h1>
 
       <Form onSubmit={handleUpload}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -138,44 +138,22 @@ const AddaToy = () => {
               className="input input-bordered"
             />
           </div>
-
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Sub Category</span>
-            </label>
-            <input          
-            type="text"
-            name="subCategory"
-            placeholder="Sub Category"
-            className="input input-bordered"
-          />
+          <div className="form-control w-full max-w-xs">
+            <select
+              className="select select-bordered"
+              type="text"
+              name="subCategory"
+              placeholder="Sub Category"
+            >
+              <option disabled selected>
+                Pick one
+              </option>
+              <option>Action</option>
+              <option>Scientists</option>
+              <option>Warriors</option>
+            </select>
           </div>
         </div>
-        
-        {/* <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Pick the best fantasy</span>
-          </label>
-
-          <label className="label">
-            <span className="label-text-alt">Alt label</span>
-            <span className="label-text-alt">Alt label</span>
-          </label>
-          <input          
-            type="text"
-            name="subCategory"
-            placeholder="Sub Category"
-            className="input input-bordered"
-          />
-          <select className="select select-bordered">
-            <option disabled selected>
-              Pick one sub category
-            </option>
-            <option>Action</option>
-            <option>Scientists</option>
-            <option>Warriors</option>
-          </select>
-        </div> */}
 
         <div className="form-control mt-6">
           <input

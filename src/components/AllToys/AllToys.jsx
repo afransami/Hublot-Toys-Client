@@ -16,7 +16,7 @@ const AllToys = () => {
 
     return (
         <div className="overflow-x-auto w-full mx-auto container">
-      <h1 className="text-3xl">Your book List: {allToys.length} </h1>
+      <h1 className="text-3xl">All Toy List: {allToys.length} </h1>
       <table className="table w-full">
         {/* head */}
         <thead>

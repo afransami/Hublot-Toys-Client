@@ -16,8 +16,6 @@ const SubCategory = () => {
             <Link><Tab>Action</Tab></Link>            
             <Link><Tab>Scientists</Tab></Link>            
             <Link><Tab>Warriors</Tab></Link>            
-            {/* <Tab>Scientists</Tab>
-            <Tab>Warriors</Tab>             */}
           </TabList>
 
           <TabPanel>

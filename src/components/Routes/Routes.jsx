@@ -11,6 +11,9 @@ import MyToys from "../MyToys/MyToys";
 import AddaToy from "../AddaToy/AddaToy";
 import UpdateToy from "../UpdateToy/UpdateToy";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import Action from "../SubCategory/Action";
+import Scientists from "../SubCategory/Scientists";
+import Warriors from "../SubCategory/Warriors";
 
 
 
@@ -55,6 +58,18 @@ const router = createBrowserRouter([
         {
             path: 'addAToy',
             element: <AddaToy></AddaToy>
+        },
+        {
+            path: 'action/:id',
+            element: <Action></Action>
+        },        
+        {
+            path: 'scientists/:id',
+            element: <Scientists></Scientists>
+        },
+        {
+            path: 'warriors/:id',
+            element: <Warriors></Warriors>
         },
         
       ]

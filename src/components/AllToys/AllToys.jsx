@@ -22,9 +22,7 @@ const AllToys = () => {
   console.log(allToys);
 
   const handleToySearch = () => {
-    fetch(
-      `http://localhost:5000/searchToy/${search}`
-    )
+    fetch(`http://localhost:5000/searchToy/${search}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -78,7 +76,7 @@ const AllToys = () => {
         </thead>
 
         <tbody>
-          {allToys.map((toy, i) => (
+          {allToys.map((toy, i) => (            
             <tr key={toy._id}>
               <th>{i + 1}</th>
               <th>{toy.sellerName}</th>

@@ -2,10 +2,10 @@ import React from "react";
 
 const Gallery = () => {
   return (
-    <div className="my-10">
-      <div><p className="text-5xl font-bold text-center underline my-10">Gallery</p>
-      <p className="text-center text-xl my-10">Transformer toys are action figures inspired by the Transformers franchise. They can transform between different forms like robots, vehicles, or animals. They come in various sizes and complexities, with popular characters and intricate transformation mechanisms. Transformer toys are loved by collectors and offer a mix of playability and display value.</p></div>
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
+    <div className="py-10">
+      <div className="px-5"><p className="text-5xl font-bold text-center underline py-10">Gallery</p>
+      <p className="text-center text-xl py-10">Transformer toys are action figures inspired by the Transformers franchise. They can transform between different forms like robots, vehicles, or animals. They come in various sizes and complexities, with popular characters and intricate transformation mechanisms. Transformer toys are loved by collectors and offer a mix of playability and display value.</p></div>
+      <div className="lg:flex justify-between gap-4">
         <div className="mockup-phone">
                 <p className="font-bold text-orange-600 text-center text-xl">Albatron</p>
           <div className="camera"></div>

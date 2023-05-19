@@ -56,11 +56,11 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="w-1/2">
+      <div className="hero-content grid lg:grid-cols-2">
+        <div className="w-full">
           <img src="https://i.ibb.co/4MbgKjJ/lf20-xlmz9xwm.png" alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ml-20 bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
           <h1 className="text-4xl p-5 font-bold">Register!</h1>
           <Form onSubmit={handleSignUp}>
             <div className="card-body">

@@ -1,25 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
-    const [allToys, setAllToys] = useState([])
+  const [allToys, setAllToys] = useState([]);
+  const [search, setSearch] = useState("");
 
-  useEffect(()=>{
-    
-    fetch('https://assignment-11-server-chi-steel.vercel.app/allToys')
-    .then (res=>res.json())    
-    .then (data=>setAllToys(data))
-  },[])  
+  
+  useEffect(() => {
+    fetch("http://localhost:5000/allToys")
+      .then((res) => res.json())
+      .then((data) => setAllToys(data));
+  }, []);
   console.log(allToys);
+  
 
+  const handleToySearch = () => {
+    fetch(`http://localhost:5000/searchToy/${search}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllToys(data);
+        console.log(data);
+      });
+  };
+  
 
-    return (
-        <div className="overflow-x-auto w-full mx-auto container">
-      <h1 className="text-3xl">All Toy List: {allToys.length} </h1>
+  return (
+    <div className="overflow-x-auto w-full mx-auto container">
+      
+      <div className="my-10 text-center flex justify-center">
+      <div className="search-box p-2 text-center">
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            className="input input-bordered input-info w-full max-w-xs"
+          />{" "}
+          <button className="btn btn-outline absolute btn-info" onClick={handleToySearch}>Search</button>
+        </div>
+
+          </div>
       <table className="table w-full">
         {/* head */}
-        <thead>
+        <thead>          
           <tr>
             <th>SL</th>
             <th>Seller Name</th>
@@ -40,7 +61,7 @@ const AllToys = () => {
               <td>{toy.subCategory}</td>
               <td>{toy.price}</td>
               <td>{toy.availableQuantity}</td>
-              <td className="gap-4 flex">               
+              <td className="gap-4 flex">
                 <Link
                   to={`/viewDetails/${toy._id}`}
                   className="btn btn-info btn-outline"
@@ -53,7 +74,7 @@ const AllToys = () => {
         </tbody>
       </table>
     </div>
-    );
+  );
 };
 
 export default AllToys;

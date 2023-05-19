@@ -8,7 +8,7 @@ const MyToys = () => {
   const [allToys, setAllToys] = useState([]);
 
   const handleDelete = (id) => {
-    fetch(`https://assignment-11-server-chi-steel.vercel.app/toy/${id}`, {
+    fetch(`http://localhost:5000/toy/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-chi-steel.vercel.app/myToys/${user?.email}`)
+    fetch(`http://localhost:5000/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, [user]);

@@ -1,11 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -23,6 +28,13 @@ const Register = () => {
         setError("");
         form.reset("");
         userUpdate(result.user, name, photoURL);
+        Swal.fire({
+          title: "success!",
+          text: "You have registered Successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error.message);

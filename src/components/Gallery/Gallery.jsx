@@ -56,45 +56,6 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="carousel rounded-box h-[400px] mt-10 border-4 shadow-2xl gap-4">
-        <div className="carousel-item">
-          <img
-            src="https://i.ibb.co/f21CXfX/wu-yi-TXBd-XAL-MKI-unsplash.jpg"
-            alt="Burger"
-          />
-        </div>
-        <div className="carousel-item">
-          <img src="https://i.ibb.co/VC9nR2Y/image-1.png" alt="Burger" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.ibb.co/Jz92GYf/Transformers-Wheeljack.jpg"
-            alt="Burger"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.ibb.co/0qVS4qd/Transformers-Toys-Studio-Series-54-Voyager-Class-Movie-1-Megatron-Action-Figure-Ages-8-Up-6-5.jpg"
-            alt="Burger"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.ibb.co/gw09zHQ/taha-Fdnsiw-BIc-Yc-unsplash.jpg"
-            alt="Burger"
-          />
-        </div>
-        <div className="carousel-item">
-          <img src="https://i.ibb.co/jbgVQq6/Sideswipe.png" alt="Burger" />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://i.ibb.co/jks502X/prime-Megatron.webp"
-            alt="Burger"
-          />
-        </div>
-      </div> */}
     </div>
   );
 };

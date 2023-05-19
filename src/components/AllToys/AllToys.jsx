@@ -7,7 +7,7 @@ const AllToys = () => {
 
   useEffect(()=>{
     
-    fetch('http://localhost:5000/allToys')
+    fetch('https://assignment-11-server-chi-steel.vercel.app/allToys')
     .then (res=>res.json())    
     .then (data=>setAllToys(data))
   },[])  

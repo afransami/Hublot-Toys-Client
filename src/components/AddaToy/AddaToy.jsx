@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Form } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddaToy = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +32,7 @@ const AddaToy = () => {
     };
     console.log(singleToy);
 
-    fetch("http://localhost:5000/uploadToy", {
+    fetch("https://assignment-11-server-chi-steel.vercel.app/uploadToy", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -40,6 +41,12 @@ const AddaToy = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    Swal.fire({
+      title: "success!",
+      text: "You have added a Toy Successfully",
+      icon: "success",
+      confirmButtonText: "Cool",
+    });
   };
 
   return (

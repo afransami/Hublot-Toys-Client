@@ -1,5 +1,6 @@
 import React  from "react";
 import { Form, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   const { id } = useParams();
@@ -18,17 +19,25 @@ const UpdateToy = () => {
     };
     console.log(updateToy);
 
-    fetch(`http://localhost:5000/toy/${id}`, {
+    fetch(`https://assignment-11-server-chi-steel.vercel.app/toy/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(updateToy),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
-
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      
+      // Display success toast using SweetAlert
+      Swal.fire({
+        icon: 'success',
+        title: 'Update Successful',
+        text: 'The toy has been successfully updated.',
+      });  
+    })
+  }
   return (
     <div className="card-body">
       <h1 className="text-5xl text-center font-bold"> Update A Toy: </h1>

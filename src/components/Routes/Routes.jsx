@@ -10,6 +10,7 @@ import AllToys from "../AllToys/AllToys";
 import MyToys from "../MyToys/MyToys";
 import AddaToy from "../AddaToy/AddaToy";
 import UpdateToy from "../UpdateToy/UpdateToy";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
             path: '/',

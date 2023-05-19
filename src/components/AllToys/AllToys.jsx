@@ -1,46 +1,71 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [search, setSearch] = useState("");
+  const [limit, setLimit] = useState(0)
 
-  
+  const handleLimit = (event)=>{
+    event.preventDefault ()
+    const limitToy = event.target.limit.value;
+    setLimit(limitToy)
+
+
+  }
+
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch(`http://localhost:5000/allToys?limit=${limit}`)
       .then((res) => res.json())
       .then((data) => setAllToys(data));
-  }, []);
+  }, [limit]);
   console.log(allToys);
-  
 
   const handleToySearch = () => {
-    fetch(`http://localhost:5000/searchToy/${search}`)
+    fetch(
+      `http://localhost:5000/searchToy/${search}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
         console.log(data);
       });
   };
-  
 
   return (
     <div className="overflow-x-auto w-full mx-auto container">
-      
-      <div className="my-10 text-center flex justify-center">
-      <div className="search-box p-2 text-center">
+      <div className="my-10 text-center flex justify-around">
+        <div className="search-box p-2 text-center">
+          <Form onSubmit={handleLimit}>
+            <input
+              type="text"
+              name="limit"
+              placeholder="Limit Transformer"
+              className="input input-bordered input-info w-full max-w-xs"
+            />{" "}
+            <button type="submit" className="btn btn-outline absolute btn-info">
+              Submit
+            </button>
+          </Form>
+        </div>
+        <div className="search-box p-2 text-center">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
+            placeholder="Search Transformer"
             className="input input-bordered input-info w-full max-w-xs"
           />{" "}
-          <button className="btn btn-outline absolute btn-info" onClick={handleToySearch}>Search</button>
+          <button
+            className="btn btn-outline absolute btn-info"
+            onClick={handleToySearch}
+          >
+            Search
+          </button>
         </div>
-
-          </div>
+      </div>
       <table className="table w-full">
         {/* head */}
-        <thead>          
+        <thead>
           <tr>
             <th>SL</th>
             <th>Seller Name</th>

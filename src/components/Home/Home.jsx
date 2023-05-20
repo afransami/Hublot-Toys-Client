@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import SubCategory from '../SubCategory/SubCategory';
 import UpcomingToys from '../UpcomingToys/UpcomingToys';
+import TrendingToys from '../TrendingToys/TrendingToys';
 
 const Home = () => {
     return (
@@ -10,7 +11,8 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <SubCategory></SubCategory> 
-            <UpcomingToys></UpcomingToys>      
+            <UpcomingToys></UpcomingToys>
+            <TrendingToys></TrendingToys>      
             
         </div>
     );

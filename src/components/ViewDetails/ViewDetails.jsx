@@ -8,7 +8,7 @@ const ViewDetails = () => {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toy/${id}`)
+    fetch(`https://assignment-11-server-chi-steel.vercel.app/toy/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDetails(data);

@@ -19,7 +19,7 @@ const UpdateToy = () => {
     };
     console.log(updateToy);
 
-    fetch(`http://localhost:5000/toy/${id}`, {
+    fetch(`https://assignment-11-server-chi-steel.vercel.app/toy/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -12,8 +12,6 @@ import AddaToy from "../AddaToy/AddaToy";
 import UpdateToy from "../UpdateToy/UpdateToy";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Action from "../SubCategory/Action";
-import Scientists from "../SubCategory/Scientists";
-import Warriors from "../SubCategory/Warriors";
 
 
 
@@ -62,15 +60,7 @@ const router = createBrowserRouter([
         {
             path: 'action',
             element: <Action></Action>
-        },        
-        {
-            path: 'scientists',
-            element: <Scientists></Scientists>
-        },
-        {
-            path: 'warriors',
-            element: <Warriors></Warriors>
-        },
+        },             
         
       ]
     },

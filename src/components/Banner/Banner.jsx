@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full h-[600px] rounded-xl relative">
+      <div className="carousel w-full rounded-xl relative">
         <div
           className=""
           style={{
@@ -20,28 +20,28 @@ const Banner = () => {
           />
           <button className="btn btn-outline absolute btn-info">Search</button>
         </div>
-        <div id="item1" className="carousel-item w-full ">
+        <div id="item1" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/2SrZ6Tz/bumblebee.jpg"
-            className="w-full"
+            src="https://i.ibb.co/rmg74hj/transformers-thumbnail-1654818516621.jpg"
+            className="w-full" style={{ width: "100%", height: "600px", objectFit: "cover" }}
           />
         </div>
         <div id="item2" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/TWmDvxS/autobots-2.webp"
-            className="w-full"
+            src="https://i.ibb.co/Px0Y653/mo-jiaming-e-Wll-D4-Htb0w-unsplash.jpg"
+            className="w-full" style={{ width: "100%", height: "600px", objectFit: "cover" }}
           />
         </div>
         <div id="item3" className="carousel-item w-full">
           <img
-            src="https://i.ibb.co/rmg74hj/transformers-thumbnail-1654818516621.jpg"
-            className="w-full"
+            src="https://i.ibb.co/TWmDvxS/autobots-2.webp"
+            className="w-full" style={{ width: "100%", height: "600px", objectFit: "cover" }}
           />
         </div>
         <div id="item4" className="carousel-item w-full">
           <img
             src="https://i.ibb.co/vxbJG9d/Autobots-tfp.webp"
-            className="w-full"
+            className="w-full" style={{ width: "100%", height: "600px", objectFit: "cover" }}
           />
         </div>
       </div>

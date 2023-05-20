@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="rounded-xl navbar bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
+    <div className="rounded-xl flex justify-between navbar bg-gradient-to-r from-indigo-200 from-10% via-sky-200 via-30% to-emerald-200 to-90%">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -102,7 +102,7 @@ const Navbar = () => {
           <div className="px-5 text-center flex justify-center items-center">
             <img
               className="w-12 h-12 rounded-lg"
-              src="https://i.ibb.co/TbfssYY/Outstanding-Illustrations-by-UK-Artist-Petros-Afshar-Inspirationfeed.png"
+              src="https://i.ibb.co/sQ0k9GM/autobots.png"
               alt=""
             />
             <div>

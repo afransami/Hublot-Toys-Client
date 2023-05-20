@@ -112,13 +112,14 @@ const Login = () => {
                   </Link>
                 </p>
               </div>
-              <div className="divider">OR</div>
-              <div className="text-center">
+              <div className="divider"></div>
+              <div className="text-center">                
                 <button
+                
                   onClick={handleGoogleSignIn}
                   className="text-2xl btn btn-circle btn-outline text-indigo-600"
                 >
-                  <FaGoogle></FaGoogle>
+                  <FaGoogle className="text-red-600"></FaGoogle>
                 </button>
               </div>
             </div>

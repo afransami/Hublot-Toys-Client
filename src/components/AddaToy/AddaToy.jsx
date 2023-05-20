@@ -32,7 +32,7 @@ const AddaToy = () => {
     };
     console.log(singleToy);
 
-    fetch("http://localhost:5000/uploadToy", {
+    fetch("https://assignment-11-server-chi-steel.vercel.app/uploadToy", {
       method: "post",
       headers: {
         "content-type": "application/json",

@@ -8,7 +8,7 @@ const Footer = () => {
       <div>
         <Link to= "/"><img
           className="w-24 h-24 rounded-lg"
-          src="https://i.ibb.co/TbfssYY/Outstanding-Illustrations-by-UK-Artist-Petros-Afshar-Inspirationfeed.png"
+          src="https://i.ibb.co/sQ0k9GM/autobots.png"
           alt=""
         /></Link>
         <p>

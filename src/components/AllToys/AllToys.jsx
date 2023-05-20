@@ -4,23 +4,23 @@ import { Form, Link } from "react-router-dom";
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState(0);
+  // const [limit, setLimit] = useState(0);
 
-  const handleLimit = (event) => {
-    event.preventDefault();
-    const limitToy = event.target.limit.value;
-    setLimit(limitToy);
-  };
+  // const handleLimit = (event) => {
+  //   event.preventDefault();
+  //   const limitToy = event.target.limit.value;
+  //   setLimit(limitToy);
+  // };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys?limit=${limit}`)
+    fetch('https://assignment-11-server-chi-steel.vercel.app/allToys')
       .then((res) => res.json())
       .then((data) => setAllToys(data));
-  }, [limit]);
+  }, []);
   console.log(allToys);
 
   const handleToySearch = () => {
-    fetch(`http://localhost:5000/searchToy/${search}`)
+    fetch(`https://assignment-11-server-chi-steel.vercel.app/searchToy/${search}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -32,7 +32,7 @@ const AllToys = () => {
     <div className="overflow-x-auto w-full mx-auto container">
       <div className="my-10 text-center flex justify-around">
         <div className="search-box p-2 text-center">
-          <Form onSubmit={handleLimit}>
+          {/* <Form onSubmit={handleLimit}>
             <input
               type="text"
               name="limit"
@@ -42,7 +42,7 @@ const AllToys = () => {
             <button type="submit" className="btn btn-outline absolute btn-info">
               Submit
             </button>
-          </Form>
+          </Form> */}
         </div>
         <div className="search-box p-2 text-center">
           <input

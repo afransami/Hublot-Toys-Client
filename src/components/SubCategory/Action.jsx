@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Action = () => {
   const [actionToys, setActionToys] = useState([]);
 
-  const handleToySearch = (subCategory) => {
-    fetch(`http://localhost:5000/category?subCategory=${subCategory}`)
+  const handleSubCategory = (subCategory) => {
+    fetch(`https://assignment-11-server-chi-steel.vercel.app/category?subCategory=${subCategory}`)
       .then((res) => res.json())
       .then((data) => {
         setActionToys(data);
@@ -20,7 +20,7 @@ const Action = () => {
         <div className="flex flex-row justify-center gap-8 my-10">
           <Link>
             <button
-              onClick={() => handleToySearch("action")}
+              onClick={() => handleSubCategory("action")}
               className="btn btn-outline btn-info"
             >
               Action
@@ -28,7 +28,7 @@ const Action = () => {
           </Link>
           <Link>
             <button
-              onClick={() => handleToySearch("scientists")}
+              onClick={() => handleSubCategory("scientists")}
               className="btn btn-outline btn-success"
             >
               Scientists
@@ -37,7 +37,7 @@ const Action = () => {
           <Link>
             <button
               className="btn btn-outline btn-warning"
-              onClick={() => handleToySearch("warriors")}
+              onClick={() => handleSubCategory("warriors")}
             >
               Warriors
             </button>
@@ -48,7 +48,7 @@ const Action = () => {
           <div className="my-20 flex justify-center">
             <div className="card card-side lg:w-2/4 bg-base-100 shadow-xl ">
               <figure>
-                <img className="lg:w-3/4" src={actionToy.picture} alt="toy" />
+                <img className="lg:w-3/4 object-cover" src={actionToy.picture} alt="toy" />
               </figure>
               <div className="card-body">
                 <div>

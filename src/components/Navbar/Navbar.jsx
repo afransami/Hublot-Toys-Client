@@ -106,9 +106,9 @@ const Navbar = () => {
               alt=""
             />
             <div>
-              <a className="btn btn-ghost text-center normal-case text-xl font-bold">
+              <Link className="btn btn-ghost text-center normal-case text-xl font-bold">
                 Hublot Toys
-              </a>{" "}
+              </Link>{" "}
               <br />{" "}
               <small className="hidden lg:block">
                 Entertaining kids since 1886

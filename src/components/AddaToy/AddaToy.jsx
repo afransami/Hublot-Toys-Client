@@ -164,7 +164,7 @@ const AddaToy = () => {
 
         <div className="form-control mt-6">
           <input
-            className="btn btn-block btn-primary"
+            className="btn btn-block btn-outline btn-info"
             type="submit"
             value="Update confirm"
           />

@@ -15,7 +15,6 @@ const Action = () => {
   };
 
   return (
-    <div>
       <div>
         <div className="flex flex-row justify-center gap-8 my-10">
           <Link>
@@ -86,7 +85,6 @@ const Action = () => {
           </div>
         ))}
       </div>
-    </div>
   );
 };
 

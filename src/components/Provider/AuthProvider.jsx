@@ -18,9 +18,11 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
 
-  const createUser = (email, password) => {
+  
+
+  const googleSignIn = () => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const signIn = (email, password) => {
@@ -28,9 +30,9 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleSignIn = () => {
+  const createUser = (email, password) => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
@@ -43,27 +45,6 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       console.log(currentUser);
       setLoading(false);
-      // if (currentUser && currentUser.email) {
-      //   const loggedUer = {
-      //     email: currentUser.email,
-      //   };
-      //   fetch("https://car-doctor-server-orpin-sigma.vercel.app/jwt", {
-      //     method: "POST",
-      //     headers: {
-      //       "content-type": "application/json",
-      //     },
-      //     body: JSON.stringify(loggedUer),
-      //   })
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       console.log("jwt response", data);
-
-      //       // localstrage in not a best but second best
-      //       localStorage.setItem("car-access-token", data.token);
-      //     });
-      // } else {
-      //   localStorage.removeItem("car-access-token");
-      // }
     });
     return () => {
       unsubscribe();
@@ -74,9 +55,9 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
-    signIn,
-    googleSignIn,
     logOut,
+    googleSignIn,
+    signIn  
   };
 
   return (

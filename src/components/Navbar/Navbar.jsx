@@ -57,12 +57,23 @@ const Navbar = () => {
 
             <ul className="flex space-x-4">
               {user ? (
-                <li>
-                  <div
+                <>
+                  <li
                     className="relative"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
+                  
+                  <li>
+                    <Link href="/myToys">My Toys</Link>
+                  </li>
+                  <li>
+                    <Link href="/addAToy">Add A Toy</Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogOut}>Log Out</button>
+                  </li>
+              
                     <img
                       src={user.profilePicture}
                       alt="Profile Picture"
@@ -73,28 +84,14 @@ const Navbar = () => {
                         {user ? user.displayName : user.email}
                       </span>
                     )}
-                  </div>
-                </li>
+                  </li>
+                </>
               ) : (
                 <li>
                   <a href="/login">Login</a>
                 </li>
               )}
-              {user ? (
-                <>
-                  <li>
-                    <a href="/myToys">My Toys</a>
-                  </li>
-                  <li>
-                    <a href="/addAToy">Add A Toy</a>
-                  </li>
-                  <li>
-                    <button onClick={handleLogOut}>Log Out</button>
-                  </li>
-                </>
-              ) : (
-                ""
-              )}
+            
             </ul>
           </ul>
         </div>
@@ -130,8 +127,15 @@ const Navbar = () => {
           </li>
 
           <ul className="flex space-x-4">
-            {user ? (
-              <li>
+            {user ? (         
+                <>
+                <li>
+                  <Link to="/myToys">My Toys</Link>
+                </li>
+                <li>
+                  <Link to="/addAToy">Add A Toy</Link>
+                </li>                
+              
                 <div
                   className="relative"
                   onMouseEnter={handleMouseEnter}
@@ -142,33 +146,22 @@ const Navbar = () => {
                     alt="Profile Picture"
                     className="w-8 h-8 rounded-full"
                   />
+                  <li>
+                  <button onClick={handleLogOut}>Log Out</button>
+                </li>
                   {showUsername && (
                     <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
                       {user ? user.displayName : user.email}
                     </span>
                   )}
                 </div>
-              </li>
+                </>
             ) : (
               <li>
-                <a href="/login">Login</a>
+                <Link to="/login">Login</Link>
               </li>
             )}
-            {user ? (
-              <>
-                <li>
-                  <a href="/myToys">My Toys</a>
-                </li>
-                <li>
-                  <a href="/addAToy">Add A Toy</a>
-                </li>
-                <li>
-                  <button onClick={handleLogOut}>Log Out</button>
-                </li>
-              </>
-            ) : (
-              ""
-            )}
+           
           </ul>
         </ul>
       </div>

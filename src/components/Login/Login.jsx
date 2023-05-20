@@ -17,7 +17,6 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         setError("");
-        form.reset("");
         Swal.fire({
           icon: 'success',
           title: 'Login Successful',

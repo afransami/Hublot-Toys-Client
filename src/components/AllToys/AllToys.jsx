@@ -32,7 +32,7 @@ const AllToys = () => {
             className="input input-bordered input-info w-full max-w-xs "
           />{" "}
           <button
-            className="btn btn-outline  relative btn-info"
+            className="btn btn-outline btn-info relative"
             onClick={handleToySearch}
           >
             Search

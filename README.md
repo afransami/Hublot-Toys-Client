@@ -7,6 +7,9 @@ This is a chef website showcasing his skills, recipes, and experience.
 ## Technologies Used
 * React
 * CSS
+* mongodb
+* tailwind
+* daisyui
 * JavaScript
 ## Features
 ## Installation

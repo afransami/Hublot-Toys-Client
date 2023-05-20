@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React from 'react';
 
 const Scientists = () => {
-  return <div></div>;
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default Scientists;

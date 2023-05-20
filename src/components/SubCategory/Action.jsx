@@ -1,11 +1,12 @@
+import { Rating } from "@smastrom/react-rating";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Action = () => {
   const [actionToys, setActionToys] = useState([]);
 
-  const handleToySearch = () => {
-    fetch("http://localhost:5000/category?subCategory=action")
+  const handleToySearch = (subCategory) => {
+    fetch(`http://localhost:5000/category?subCategory=${subCategory}`)
       .then((res) => res.json())
       .then((data) => {
         setActionToys(data);
@@ -13,61 +14,50 @@ const Action = () => {
       });
   };
 
+
   return (
     <div>
       <div>
         <div className="flex flex-row justify-center gap-8 my-10">
           <Link>
             <button
-              onClick={handleToySearch}
+              onClick={() => handleToySearch('action')}
               className="btn btn-outline btn-info"
             >
               Action
             </button>
           </Link>
           <Link>
-            <button className="btn btn-outline btn-success">Scientists</button>
+            <button onClick={() => handleToySearch('scientists')} className="btn btn-outline btn-success">Scientists</button>
           </Link>
           <Link>
-            <button className="btn btn-outline btn-warning">Warriors</button>
+            <button className="btn btn-outline btn-warning" onClick={() => handleToySearch('warriors')}>Warriors</button>
           </Link>
         </div>
 
         {actionToys?.map((actionToy) => (
-          <div className="card card-side w-2/3 mt-20 bg-base-100 shadow-2xl">
+          <div className="my-20 flex justify-center" >
+            <div className="card w-2/4 bg-base-100 shadow-2xl flex justify-center flex-row">
             <figure>
-              <img src={actionToy.picture} alt="picture" />
+              <img className="w-1/2" src={actionToy.picture} alt="toy" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">
-                <strong>Toy Name:</strong>
-                {actionToy.name}
-              </h2>
+              <h2 className="card-title">Toy Name: {actionToy.name}</h2>
+              <h2 className="card-title">Toy Price: {actionToy.price}</h2>
               <p className="card-title">
-                <strong>Seller Name:</strong>
-                {actionToy.sellerName}
-              </p>
-              <p className="card-title">
-                <strong>Seller Email:</strong>
-                {actionToy.sellerEmail}
-              </p>
-              <p>
-                <strong>Details:</strong> {actionToy.description}
-              </p>
-              <div className="flex justify-between">
-                <h2 className="card-title">
-                  <strong>Price:</strong>${actionToy.price}
-                </h2>
-
-                <h2 className="card-title">
-                  <span>Available Quantity</span>
-                  {actionToy.availableQuantity}
-                </h2>
-              </div>
+                Toy rating:
+                <Rating
+                  style={{ maxWidth: 100 }}
+                  value={actionToy.rating}
+                  readOnly
+                />
+                <span className="me-4"> {actionToy.rating}</span>
+              </p>              
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn btn-primary">View Details</button>
               </div>
             </div>
+          </div>
           </div>
         ))}
       </div>

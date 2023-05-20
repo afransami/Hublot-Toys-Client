@@ -14,50 +14,75 @@ const Action = () => {
       });
   };
 
-
   return (
     <div>
       <div>
         <div className="flex flex-row justify-center gap-8 my-10">
           <Link>
             <button
-              onClick={() => handleToySearch('action')}
+              onClick={() => handleToySearch("action")}
               className="btn btn-outline btn-info"
             >
               Action
             </button>
           </Link>
           <Link>
-            <button onClick={() => handleToySearch('scientists')} className="btn btn-outline btn-success">Scientists</button>
+            <button
+              onClick={() => handleToySearch("scientists")}
+              className="btn btn-outline btn-success"
+            >
+              Scientists
+            </button>
           </Link>
           <Link>
-            <button className="btn btn-outline btn-warning" onClick={() => handleToySearch('warriors')}>Warriors</button>
+            <button
+              className="btn btn-outline btn-warning"
+              onClick={() => handleToySearch("warriors")}
+            >
+              Warriors
+            </button>
           </Link>
         </div>
 
         {actionToys?.map((actionToy) => (
-          <div className="my-20 flex justify-center" >
-            <div className="card w-2/4 bg-base-100 shadow-2xl flex justify-center flex-row">
-            <figure>
-              <img className="w-1/2" src={actionToy.picture} alt="toy" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Toy Name: {actionToy.name}</h2>
-              <h2 className="card-title">Toy Price: {actionToy.price}</h2>
-              <p className="card-title">
-                Toy rating:
-                <Rating
-                  style={{ maxWidth: 100 }}
-                  value={actionToy.rating}
-                  readOnly
-                />
-                <span className="me-4"> {actionToy.rating}</span>
-              </p>              
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Details</button>
+          <div className="my-20 flex justify-center">
+            <div className="card card-side lg:w-2/4 bg-base-100 shadow-xl ">
+              <figure>
+                <img className="lg:w-3/4" src={actionToy.picture} alt="toy" />
+              </figure>
+              <div className="card-body">
+                <div>
+                  <p>
+                    <strong>Toy Name: </strong>
+                    {actionToy.name}
+                  </p>
+                  <p>
+                    <strong>Toy Price: </strong>
+                    {actionToy.price}
+                  </p>
+                </div>
+
+                <div className="flex justify-between">
+                  <p className="flex gap-4">
+                    <strong>Rating: </strong>
+                    <Rating
+                      style={{ maxWidth: 100 }}
+                      value={actionToy.rating}
+                      readOnly
+                    />
+                    <span className="me-4"> {actionToy.rating}</span>
+                  </p>
+                </div>
+                <div className="card-actions justify-end">
+                  <Link
+                    to={`/viewDetails/${actionToy._id}`}
+                    className="btn btn-info btn-outline"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         ))}
       </div>

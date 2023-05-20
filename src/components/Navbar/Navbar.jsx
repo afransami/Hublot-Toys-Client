@@ -106,10 +106,13 @@ const Navbar = () => {
               alt=""
             />
             <div>
-              <a className="btn btn-ghost normal-case text-3xl font-bold">
+              <a className="btn btn-ghost text-center normal-case text-xl font-bold">
                 Hublot Toys
               </a>{" "}
-              <br /> <small>Entertaining kids since 1886</small>
+              <br />{" "}
+              <small className="hidden lg:block">
+                Entertaining kids since 1886
+              </small>
             </div>
           </div>
         </Link>

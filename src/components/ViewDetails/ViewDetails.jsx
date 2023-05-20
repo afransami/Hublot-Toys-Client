@@ -16,47 +16,50 @@ const ViewDetails = () => {
   }, []);
 
   return (
-    <div>
-      <div className="card card-side w-2/3 mt-20 bg-base-100 shadow-2xl">
+    <div className="flex justify-center my-20">
+      <div className="card card-side lg:w-2/4 mt-20 bg-base-100 shadow-2xl">
         <figure>
-          <img src={details.picture} alt="picture" />
+          <img className="lg:w-3/4" src={details.picture} alt="picture" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            <strong>Toy Name:</strong>
-            {details.name}
-          </h2>
-          <p className="card-title">
-            <strong>Seller Name:</strong>
-            {details.sellerName}
-          </p>
-          <p className="card-title">
-            <strong>Seller Email:</strong>
-            {details.sellerEmail}
-          </p>
-          <p>
-            <strong>Details:</strong> {details.description}
-          </p>
+          <div>
+            <p>
+              <strong>Toy Name: </strong>
+              {details.name}
+            </p>
+            <p>
+              <strong>Seller Name: </strong>
+              {details.sellerName}
+            </p>
+            <p>
+              <strong>Seller Email: </strong>
+              {details.sellerEmail}
+            </p>
+            <p>
+              <strong>Details: </strong> {details.description}
+            </p>
+            <p>
+              <strong>Price: </strong> {details.price}
+            </p>
+          </div>
+
           <div className="flex justify-between">
-            <h2 className="card-title">
-              <strong>Price:</strong>${details.price}
-            </h2>
-            <h2 className="card-title">
-              <span>Rating:</span>
+            <p className="flex gap-4">
+              <strong>Rating: </strong>
               <Rating
                 style={{ maxWidth: 100 }}
                 value={details.rating}
                 readOnly
               />
               <span className="me-4"> {details.rating}</span>
-            </h2>
-            <h2 className="card-title">
-              <span>Available Quantity</span>
-              {details.availableQuantity}
-            </h2>
+            </p>            
           </div>
+          <p>
+              <strong>Available Quantity: </strong>
+              {details.availableQuantity}
+            </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-info btn-outline">Buy Now</button>
           </div>
         </div>
       </div>

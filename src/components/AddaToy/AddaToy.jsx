@@ -155,9 +155,9 @@ const AddaToy = () => {
               <option disabled selected>
                 Pick one
               </option>
-              <option>Action</option>
-              <option>Scientists</option>
-              <option>Warriors</option>
+              <option>action</option>
+              <option>scientists</option>
+              <option>warriors</option>
             </select>
           </div>
         </div>

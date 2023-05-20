@@ -4,15 +4,13 @@ import { Form, Link } from "react-router-dom";
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState(0)
+  const [limit, setLimit] = useState(0);
 
-  const handleLimit = (event)=>{
-    event.preventDefault ()
+  const handleLimit = (event) => {
+    event.preventDefault();
     const limitToy = event.target.limit.value;
-    setLimit(limitToy)
-
-
-  }
+    setLimit(limitToy);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/allToys?limit=${limit}`)
@@ -76,7 +74,7 @@ const AllToys = () => {
         </thead>
 
         <tbody>
-          {allToys.map((toy, i) => (            
+          {allToys.map((toy, i) => (
             <tr key={toy._id}>
               <th>{i + 1}</th>
               <th>{toy.sellerName}</th>

@@ -60,15 +60,15 @@ const router = createBrowserRouter([
             element: <AddaToy></AddaToy>
         },
         {
-            path: 'action/:id',
+            path: 'action',
             element: <Action></Action>
         },        
         {
-            path: 'scientists/:id',
+            path: 'scientists',
             element: <Scientists></Scientists>
         },
         {
-            path: 'warriors/:id',
+            path: 'warriors',
             element: <Warriors></Warriors>
         },
         

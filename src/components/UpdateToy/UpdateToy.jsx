@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { Form, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -26,18 +26,18 @@ const UpdateToy = () => {
       },
       body: JSON.stringify(updateToy),
     })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      
-      // Display success toast using SweetAlert
-      Swal.fire({
-        icon: 'success',
-        title: 'Update Successful',
-        text: 'The toy has been successfully updated.',
-      });  
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        // Display success toast using SweetAlert
+        Swal.fire({
+          icon: "success",
+          title: "Update Successful",
+          text: "The toy has been successfully updated.",
+        });
+      });
+  };
   return (
     <div className="card-body">
       <h1 className="text-5xl text-center font-bold"> Update A Toy: </h1>

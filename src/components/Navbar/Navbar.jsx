@@ -63,17 +63,17 @@ const Navbar = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                  
-                  <li>
-                    <Link href="/myToys">My Toys</Link>
-                  </li>
-                  <li>
-                    <Link href="/addAToy">Add A Toy</Link>
-                  </li>
-                  <li>
-                    <button onClick={handleLogOut}>Log Out</button>
-                  </li>
-              
+                    <li>
+                      <Link to="/myToys">My Toys</Link>
+                    </li>
+                    <li>
+                      <Link to="/addAToy">Add A Toy</Link>
+                    </li>
+
+                    <li>
+                      <button onClick={handleLogOut}>Log Out</button>
+                    </li>
+
                     <img
                       src={user.profilePicture}
                       alt="Profile Picture"
@@ -91,7 +91,6 @@ const Navbar = () => {
                   <a href="/login">Login</a>
                 </li>
               )}
-            
             </ul>
           </ul>
         </div>
@@ -127,15 +126,15 @@ const Navbar = () => {
           </li>
 
           <ul className="flex space-x-4">
-            {user ? (         
-                <>
+            {user ? (
+              <>
                 <li>
                   <Link to="/myToys">My Toys</Link>
                 </li>
                 <li>
                   <Link to="/addAToy">Add A Toy</Link>
-                </li>                
-              
+                </li>
+
                 <div
                   className="relative"
                   onMouseEnter={handleMouseEnter}
@@ -147,21 +146,20 @@ const Navbar = () => {
                     className="w-8 h-8 rounded-full"
                   />
                   <li>
-                  <button onClick={handleLogOut}>Log Out</button>
-                </li>
+                    <button onClick={handleLogOut}>Log Out</button>
+                  </li>
                   {showUsername && (
                     <span className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white py-1 px-2 rounded shadow">
                       {user ? user.displayName : user.email}
                     </span>
                   )}
                 </div>
-                </>
+              </>
             ) : (
               <li>
                 <Link to="/login">Login</Link>
               </li>
             )}
-           
           </ul>
         </ul>
       </div>

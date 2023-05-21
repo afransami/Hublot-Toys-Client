@@ -22,6 +22,7 @@ const Login = () => {
           title: 'Login Successful',
           text: 'You have successfully signed in with Google.',
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error.message);

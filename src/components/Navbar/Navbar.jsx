@@ -65,10 +65,10 @@ const Navbar = () => {
                   >
                   
                   <li>
-                    <Link href="/myToys">My Toys</Link>
+                    <Link to="/myToys">My Toys</Link>
                   </li>
                   <li>
-                    <Link href="/addAToy">Add A Toy</Link>
+                    <Link to="/addAToy">Add A Toy</Link>
                   </li>
                   <li>
                     <button onClick={handleLogOut}>Log Out</button>

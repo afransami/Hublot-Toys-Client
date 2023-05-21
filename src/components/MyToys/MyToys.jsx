@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const MyToys = () => {
-    const {user}= useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [allToys, setAllToys] = useState([]);
 
   const handleDelete = (id) => {
@@ -35,7 +35,9 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-chi-steel.vercel.app/myToys/${user?.email}`)
+    fetch(
+      `https://assignment-11-server-chi-steel.vercel.app/myToys/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, [user]);

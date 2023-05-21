@@ -63,17 +63,16 @@ const Navbar = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                  
-                  <li>
-                    <Link to="/myToys">My Toys</Link>
-                  </li>
-                  <li>
-                    <Link to="/addAToy">Add A Toy</Link>
-                  </li>
-                  <li>
-                    <button onClick={handleLogOut}>Log Out</button>
-                  </li>
-              
+                    <li>
+                      <Link to="/myToys">My Toys</Link>
+                    </li>
+                    <li>
+                      <Link to="/addAToy">Add A Toy</Link>
+                    </li>
+                    <li>
+                      <button onClick={handleLogOut}>Log Out</button>
+                    </li>
+
                     <img
                       src={user.profilePicture}
                       alt="Profile Picture"

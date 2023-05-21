@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [search, setSearch] = useState("");
- 
+
   useEffect(() => {
-    fetch('https://assignment-11-server-chi-steel.vercel.app/allToys')
+    fetch("https://assignment-11-server-chi-steel.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, []);
   console.log(allToys);
 
   const handleToySearch = () => {
-    fetch(`https://assignment-11-server-chi-steel.vercel.app/searchToy/${search}`)
+    fetch(
+      `https://assignment-11-server-chi-steel.vercel.app/searchToy/${search}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);

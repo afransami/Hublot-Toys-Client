@@ -18,9 +18,9 @@ const Login = () => {
         console.log(result);
         setError("");
         Swal.fire({
-          icon: 'success',
-          title: 'Login Successful',
-          text: 'You have successfully signed in with Google.',
+          icon: "success",
+          title: "Login Successful",
+          text: "You have successfully signed in with Google.",
         });
         navigate(from, { replace: true });
       })
@@ -113,13 +113,16 @@ const Login = () => {
                 </p>
               </div>
               <div className="divider"></div>
-              <div className="text-center">                
-                <button
-                
-                  onClick={handleGoogleSignIn}
-                  className="text-2xl btn btn-circle btn-outline text-indigo-600"
-                >
-                  <FaGoogle className="text-red-600"></FaGoogle>
+              <div className="text-center">
+                <button onClick={handleGoogleSignIn}>
+                  <>
+                    {" "}
+                    <img
+                      className="rounded-2xl"
+                      src="https://i.ibb.co/9tKW0xG/create-apple-google-signin-buttons-quick-dirty-way-google.png"
+                      alt=""
+                    />
+                  </>
                 </button>
               </div>
             </div>

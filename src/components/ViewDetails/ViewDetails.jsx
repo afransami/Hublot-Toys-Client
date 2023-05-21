@@ -52,12 +52,12 @@ const ViewDetails = () => {
                 readOnly
               />
               <span className="me-4"> {details.rating}</span>
-            </p>            
+            </p>
           </div>
           <p>
-              <strong>Available Quantity: </strong>
-              {details.availableQuantity}
-            </p>
+            <strong>Available Quantity: </strong>
+            {details.availableQuantity}
+          </p>
           <div className="card-actions justify-end">
             <button className="btn btn-info btn-outline">Buy Now</button>
           </div>
